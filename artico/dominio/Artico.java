@@ -33,6 +33,7 @@ public class Artico{
     }
 
     public void algunosEnArtico(){
+        
     }  
 
     public EnArtico demeEnArtico(int n){
