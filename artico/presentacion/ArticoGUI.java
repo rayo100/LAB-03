@@ -73,7 +73,7 @@ public class ArticoGUI extends JFrame{
                     improvisen();
                 }   
             };  
-        botonRapida.addActionListener(oyenteBotonImprovisen);  
+        botonImprovisen.addActionListener(oyenteBotonImprovisen);  
 
         ActionListener oyenteBotonCorten=new ActionListener(){
                 public void actionPerformed(ActionEvent e){

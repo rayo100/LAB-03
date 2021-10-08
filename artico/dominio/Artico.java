@@ -32,7 +32,7 @@ public class Artico{
         enPoloNorte=false;
     }
 
-    public void algunosEnArtico(){    
+    public void algunosEnArtico(){
     }  
 
     public EnArtico demeEnArtico(int n){
@@ -59,6 +59,7 @@ public class Artico{
     }     
     
     public void accion(){
+        
     }
 
     public void improvisen(){
