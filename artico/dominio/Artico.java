@@ -33,6 +33,10 @@ public class Artico{
     }
 
     public void algunosEnArtico(){
+        Esquimal aaju = new Esquimal(this, "aaju", 300, 300);
+        Esquimal alek = new Esquimal(this, "alek", 300, 100);
+        adicione(aaju);
+        adicione(alek);
     }  
 
     public EnArtico demeEnArtico(int n){
@@ -59,12 +63,20 @@ public class Artico{
     }     
     
     public void accion(){
-        
+        for (EnArtico i: elementos){
+            i.accion();
+        }
     }
 
     public void improvisen(){
+        for (EnArtico i: elementos){
+            i.improvise();
+        }
     }    
 
     public void corten(){
+        for (EnArtico i: elementos){
+            i.corte();
+        }
     }  
 }
