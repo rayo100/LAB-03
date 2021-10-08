@@ -33,14 +33,10 @@ public class Artico{
     }
 
     public void algunosEnArtico(){
-<<<<<<< HEAD
-        
-=======
         Esquimal aaju = new Esquimal(this, "aaju", 300, 300);
         Esquimal alek = new Esquimal(this, "alek", 300, 100);
         adicione(aaju);
         adicione(alek);
->>>>>>> c1ee89e85b66761c0b65f559475202efab2d4596
     }  
 
     public EnArtico demeEnArtico(int n){
