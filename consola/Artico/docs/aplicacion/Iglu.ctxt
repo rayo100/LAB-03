@@ -1,3 +1,25 @@
 #BlueJ class context
 comment0.target=Iglu
-numComments=1
+comment1.params=_artico\ _name\ _posicionx\ _posiciony
+comment1.target=Iglu(Artico,\ java.lang.String,\ int,\ int)
+comment10.params=_s
+comment10.target=void\ esquinas(java.lang.String)
+comment11.params=
+comment11.target=java.lang.String\ mensaje()
+comment2.params=
+comment2.target=java.lang.String\ tipo()
+comment3.params=
+comment3.target=java.awt.Color\ getColor()
+comment4.params=
+comment4.target=void\ accion()
+comment5.params=
+comment5.target=void\ corte()
+comment6.params=
+comment6.target=void\ improvise()
+comment7.params=_color
+comment7.target=void\ setColor(java.awt.Color)
+comment8.params=
+comment8.target=int\ getPosX()
+comment9.params=
+comment9.target=int\ getPosY()
+numComments=12

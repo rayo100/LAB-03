@@ -18,17 +18,22 @@ public class ArticoGUI extends JFrame{
     private JButton botonRapida;  
 
     private FotoArtico foto;
+    String[] FORMAS = new String[]{"Persona", "Circulo", "Cuadrado"};
     
     private ArticoGUI() {
         super("Artico Norte");
         try {
-            Artico.demeArtico().algunosEnArtico();     
+            Artico.demeArtico().algunosEnArtico();  
+            Artico.demeArtico().algunosEnArticoSordos();
+            Artico.demeArtico().algunosEnArticoExplorador();
+            Artico.demeArtico().iglus();
+            Artico.demeArtico().algunosEnArticoPrincipiante();
+            Artico.demeArtico().refugio();
             elementos();
             acciones();
         } catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Error", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    
     }
 
     private void elementos() throws Exception {
@@ -50,7 +55,6 @@ public class ArticoGUI extends JFrame{
         botones.add(botonCorten);
         botones.add(botonRapida);
         
-
         add(contenedor,BorderLayout.CENTER);
         add(botones,BorderLayout.SOUTH);
 
@@ -97,14 +101,11 @@ public class ArticoGUI extends JFrame{
         this.addWindowListener(w);
 
     }   
-
     
     private void accion(){
         Artico.demeArtico().accion();
         actualice();
     }
-
-  
 
     private void corten(){       
         Artico.demeArtico().corten();
@@ -156,7 +157,7 @@ public class ArticoGUI extends JFrame{
 
                 g.setColor(e.getColor()); 
                 g.drawString(e.mensaje(),x+20,y+10);   
-
+                
                 if (e.forma().equals("Persona")){
                     humano(g,(Persona)e,x,y);
                 } else  if (e.forma().equals("Circulo")){
@@ -175,6 +176,7 @@ public class ArticoGUI extends JFrame{
             g.setColor(e.getColor()); 
             g.drawOval(x+8,y-2,14,14);
             g.drawLine(x+10+5,y+10,x+10+5,y+10+20);
+            
 
             pos=e.getPosicionBrazo('I');
             if (pos==Persona.ARRIBA){
@@ -214,6 +216,13 @@ public class ArticoGUI extends JFrame{
             }else {
                 g.drawLine(x+10+15,(y+15)+10+15,x+10+15,(y+15)+10+15+10);/*piernaizqabajo*/
             }
+        }
+        
+        public void iglu(Graphics g, Iglu i,int x, int y)
+        {
+            i.getColor();
+            g.fillOval(x+10,y+0,40,40);
+            g.drawOval(x+8,y-2,14,14);
         }
     }
 }

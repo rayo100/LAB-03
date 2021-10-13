@@ -4,28 +4,21 @@ import java.util.Random;
 
 public interface EnArtico{
     String[] FORMAS = new String[]{"Persona", "Circulo", "Cuadrado"};
-
     Random r = new Random(1);
 
     int getPosicionX();
     int getPosicionY();
     Color getColor();
     void accion();
+    String tipo();
+    void improvise();
     
     default void corte(){
     }    
-
-
-    default void improvise(){
-        if (r.nextBoolean()){
-            accion();
-        }else{
-            corte();
-        }
-    }     
     
-    default String forma(){
-        return FORMAS[0];
+    default String forma()
+    {
+        return tipo();
     }
 
     default String mensaje(){
@@ -36,7 +29,8 @@ public interface EnArtico{
         boolean puede=false;
         int posX = getPosicionX();
         int posY = getPosicionY();
-        switch(direccion){
+        switch(direccion)
+        {
             case 'S' : puede = (posY+1 < Artico.MAXIMO);
             break;
             case 'E' : puede = (posX+1 < Artico.MAXIMO);

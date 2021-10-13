@@ -4,11 +4,10 @@ import java.awt.Color;
 
 public abstract class Persona {
 
-    //Posiciones
     public final static int ARRIBA=0;
     public final static int FRENTE=1;
     public final static int ABAJO=2;
-	
+    
     private int brazoIzq;
     private int brazoDer;
     private int piernaIzq;
@@ -17,8 +16,6 @@ public abstract class Persona {
     
     protected String nombre;
     protected Color color;
-
-    
 
     /**Crea un nuevo persona en la posicion <i>(posicionx, posiciony)</i> 
     @param nombre nombre de la persona
@@ -35,10 +32,34 @@ public abstract class Persona {
         piernaDer=ABAJO;
         color=Color.BLACK;
     }
+    
+    public Persona(String nombre, int posicionx, int posiciony, Color _color){
+        this.posicionx=posicionx;
+        this.posiciony=posiciony;
+        this.nombre=nombre;
+        brazoIzq=ABAJO;
+        brazoDer=ABAJO;
+        piernaIzq=ABAJO;
+        piernaDer=ABAJO;
+        color=_color;
+    }
 
-    /**Retorna el color del vestido*/
     public Color getColor(){
         return color;
+    }
+    
+    public void setColor(Color _color)
+    {
+        this.color = _color;
+    }
+    
+    public void setPositionx(int _x)
+    {
+        this.posicionx = _x;
+    }
+    public void setPositiony(int _y)
+    {
+        this.posiciony = _y;
     }
 
     /**Mueve un brazo segun las indicaciones
@@ -54,6 +75,12 @@ public abstract class Persona {
             brazoDer-=1;
         }  else if ((c=='D') && (d=='B') && ((brazoDer+1)<3)){
             brazoDer+=1;
+        } else if((c == 'I') && (d == 'P'))
+        {
+            brazoIzq = ABAJO;
+        }else if((c == 'D') && (d == 'P'))
+        {
+            brazoDer = ABAJO;
         }
     }
 
@@ -100,14 +127,13 @@ public abstract class Persona {
         if (c=='E') {
             posicionx=getPosicionX()+1;
         } else if (c=='O'){
-            posicionx=getPosicionX()-1;	
+            posicionx=getPosicionX()-1;    
         } else if (c=='N'){
             posiciony=getPosicionY()-1;
         } else if (c=='S'){
             posiciony=getPosicionY()+1;
         }
     }
-    
     
     /**Mueve su cuerpo cambiando de posicion sus extremidades
      */

@@ -1,18 +1,35 @@
 package dominio;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class Esquimal extends Persona implements EnArtico{
 
     private Artico artico;   
     protected String palabras;
+    Random r = new Random(1);
 
     public Esquimal(Artico artico,String name,int posicionx, int posiciony){
         super(name,posicionx,posiciony);
         this.artico=artico;
         palabras="¡Escalando!";
     }
-
+    
+    public String tipo()
+    {
+        return "Persona";
+    }
+    
+    public void improvise()
+    {
+        if (r.nextBoolean())
+        {
+            accion();
+        }else{
+            corte();
+        }
+    }
+    
     public void corte(){
         muevaBrazo('I','P'); 
         muevaPierna('I','P');
@@ -21,8 +38,10 @@ public class Esquimal extends Persona implements EnArtico{
         palabras="";
     }
 
-    public final void accion(){
-        if (! artico.enPoloNorte(this)){
+    public final void accion()
+    {
+        if (! artico.enPoloNorte(this))
+        {
             actue();
         }    
     }

@@ -1,5 +1,6 @@
 package dominio;
 import java.util.*;
+import java.awt.Color;
 
 public class Artico{
     public static final int MAXIMO = 500;
@@ -16,16 +17,23 @@ public class Artico{
         polo=new Artico();
     }   
 
-    public static void cambieArtico(Artico d) {
-        polo=d;
+    public static void cambieArtico(Artico a) {
+        polo=a;
     }       
 
     private ArrayList<EnArtico> elementos;
     private int poloNorteX;
     private int poloNorteY;
     private boolean enPoloNorte;
+    private Esquimal aaju, alek;
+    private EsquimalSordo aguu, ivanna;
+    private EsquimalExplorador nanuk, sialuk;
+    private EsquimalPrincipiante ronaldo, cesar;
+    private Color color = Color.GREEN;
+    private Iglu iglu;
+    private Refugio refugio;
 
-    private Artico() {
+    public Artico() {
         elementos= new ArrayList<EnArtico>();
         poloNorteX = (int)(Math.random() * MAXIMO);
         poloNorteY = (int)(Math.random() * MAXIMO);
@@ -38,6 +46,43 @@ public class Artico{
         adicione(aaju);
         adicione(alek);
     }  
+    
+    public void algunosEnArticoSordos(){
+        aguu = new EsquimalSordo(this, "aguu", 200, 400, Color.GREEN);
+        ivanna = new EsquimalSordo(this, "ivanna", 200, 100, Color.GREEN);
+        elementos.add(aguu);
+        elementos.add(ivanna);
+    } 
+    
+    public void algunosEnArticoExplorador(){
+        nanuk = new EsquimalExplorador(this, "nanuk", 50, 300, Color.RED, elementos);
+        sialuk = new EsquimalExplorador(this, "sialuk", 50, 100, Color.RED, elementos);
+        elementos.add(nanuk);
+        elementos.add(sialuk);
+    }
+    
+    public void iglus(){
+        iglu = new Iglu(this, "InferiorIzquierda",0, 0);
+        iglu = new Iglu(this, "InferiorDerecha ",500, 0);
+        iglu = new Iglu(this, "SuperiorDerecha",500, 500);
+        iglu = new Iglu(this, "SuperiorIzquierda",0,500);
+        elementos.add(iglu);
+        elementos.add(iglu);
+        elementos.add(iglu);
+        elementos.add(iglu);
+    }
+    
+    public void algunosEnArticoPrincipiante(){
+        ronaldo = new EsquimalPrincipiante(this, "ronaldo", 150, 0, Color.BLUE);
+        cesar = new EsquimalPrincipiante(this, "cesar", 300, 80, Color.BLUE);
+        elementos.add(ronaldo);
+        elementos.add(ronaldo);
+    }
+    
+    public void refugio(){
+        refugio = new Refugio(this, "refugio", 80, 60);
+        elementos.add(refugio);
+    }
 
     public EnArtico demeEnArtico(int n){
         EnArtico h=null;
@@ -68,11 +113,21 @@ public class Artico{
         }
     }
 
-    public void improvisen(){
-        for (EnArtico i: elementos){
-            i.improvise();
+    public void improvisen()
+    {
+        for(EnArtico i : elementos)
+        {
+            if(i instanceof Esquimal)
+            {
+                i.improvise();
+            }
+            else
+            {
+                i.improvise();
+            }
+            
         }
-    }    
+    }   
 
     public void corten(){
         for (EnArtico i: elementos){
