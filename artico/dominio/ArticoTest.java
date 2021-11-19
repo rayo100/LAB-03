@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 public class ArticoTest
 {
-    private Esquimal esqui1,esqui2,esqui3,esquim4;
+    private Esquimal esqui1,esqui2,esqui3,esqui4;
     private Artico artico1,artico2;
     /**
      * Sets up the test fixture.
